@@ -1,0 +1,126 @@
+{
+  "folders": [
+    {
+      "name": "🏠 Raíz del Proyecto",
+      "path": "."
+    },
+    {
+      "name": "🔧 Backend Agent",
+      "path": "./agents/backend"
+    },
+    {
+      "name": "🎨 Frontend Agent",
+      "path": "./agents/frontend"
+    },
+    {
+      "name": "🔐 Auth Agent",
+      "path": "./agents/auth"
+    }
+  ],
+  "settings": {
+    "workbench.colorTheme": "Visual Studio Dark",
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": true
+    },
+    "files.associations": {
+      "*.md": "markdown"
+    },
+    "terminal.integrated.defaultProfile.windows": "PowerShell",
+    "terminal.integrated.cwd": "${workspaceFolder}",
+    "npm.packageManager": "npm"
+  },
+  "extensions": {
+    "recommendations": [
+      "ms-vscode.vscode-typescript-next",
+      "bradlc.vscode-tailwindcss",
+      "ms-vscode.vscode-json",
+      "esbenp.prettier-vscode",
+      "dbaeumer.vscode-eslint",
+      "ms-vscode.powershell",
+      "ritwickdey.liveserver"
+    ]
+  },
+  "tasks": {
+    "version": "2.0.0",
+    "tasks": [
+      {
+        "label": "🚀 Iniciar Desarrollo",
+        "type": "npm",
+        "script": "dev",
+        "group": {
+          "kind": "build",
+          "isDefault": true
+        },
+        "presentation": {
+          "echo": true,
+          "reveal": "always",
+          "focus": false,
+          "panel": "new",
+          "showReuseMessage": true
+        },
+        "problemMatcher": [],
+        "runOptions": {
+          "runOn": "folderOpen"
+        }
+      },
+      {
+        "label": "📦 Instalar Dependencias",
+        "type": "npm",
+        "script": "install:all",
+        "group": "build"
+      },
+      {
+        "label": "🔧 Solo Backend",
+        "type": "npm",
+        "script": "dev:backend"
+      },
+      {
+        "label": "🎨 Solo Frontend",
+        "type": "npm",
+        "script": "dev:frontend"
+      },
+      {
+        "label": "🔐 Solo Auth",
+        "type": "npm",
+        "script": "dev:auth"
+      },
+      {
+        "label": "🧪 Ejecutar Tests",
+        "type": "npm",
+        "script": "test:all",
+        "group": "test"
+      },
+      {
+        "label": "🏗️ Build Producción",
+        "type": "npm",
+        "script": "build",
+        "group": "build"
+      }
+    ]
+  },
+  "launch": {
+    "version": "0.2.0",
+    "configurations": [
+      {
+        "name": "🔧 Debug Backend",
+        "type": "node",
+        "request": "launch",
+        "program": "${workspaceFolder}/agents/backend/src/index.js",
+        "env": {
+          "NODE_ENV": "development"
+        },
+        "console": "integratedTerminal"
+      },
+      {
+        "name": "🎨 Debug Frontend",
+        "type": "node",
+        "request": "launch",
+        "program": "${workspaceFolder}/agents/frontend/node_modules/react-scripts/scripts/start.js",
+        "env": {
+          "BROWSER": "none"
+        }
+      }
+    ]
+  }
+}
